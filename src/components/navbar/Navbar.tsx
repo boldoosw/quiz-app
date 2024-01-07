@@ -4,8 +4,8 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import logo from "@/assets/images/logo-old.svg";
-import logonew from "@/assets/images/Logo.png";
+// import logo from "@/assets/images/logo-old.svg";
+import logonew from "@/assets/images/logo_mcu.png";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "Климовын тест",
-        link: "#",
+        link: "quiz",
         iconImage: todoImage,
       },
       {
@@ -129,7 +129,7 @@ export default function Navbar() {
       {/* left side  */}
       <section ref={animationParent} className="flex items-center gap-10">
         {/* logo */}
-        <Image className="w-20 h-10" src={logonew} alt=" logo" />
+        <Image className="w-16" src={logonew} alt=" logo" />
         {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
         <div className="hidden md:flex items-center gap-4 transition-all">
           {navItems.map((d, i) => (
