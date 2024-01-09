@@ -50,9 +50,9 @@ const QuestionCard: React.FC<Props> = ({
               alt=""
             />
             <div className="flex flex-col justify-between p-4 leading-normal">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              {/* <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 Noteworthy technology acquisitions 2021
-              </h5>
+              </h5> */}
               <p className=" font-normal text-gray-700 dark:text-gray-400">
                 {answer}
               </p>
