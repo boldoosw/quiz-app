@@ -18,7 +18,7 @@ const QuestionCard: React.FC<Props> = ({
   answers,
   userAnswer,
   onClick,
-  correctAnswer,
+  // correctAnswer,
 }) => {
   return (
     <div className=" flex flex-column flex-wrap justify-between">
@@ -35,7 +35,6 @@ const QuestionCard: React.FC<Props> = ({
             onClick={() => onClick(answer, currentQuestionIndex)}
             className={`${getBGColor(
               userAnswer,
-              correctAnswer,
               answer
             )} p-1 cursor-pointer flex items-center justify-center select-none font-bold min-h-[45px] max-w-[400] w-full  rounded-[10px]`}
           >
@@ -47,7 +46,7 @@ const QuestionCard: React.FC<Props> = ({
             <Image
               className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
               src={logonew}
-              alt=""
+              alt="Зураг"
             />
             <div className="flex flex-col justify-between p-4 leading-normal">
               {/* <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

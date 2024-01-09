@@ -1,4 +1,3 @@
-import SubjectCard from "@/components/SubjectCard";
 import geoIcon from "../assets/images/geography.svg";
 import histIcon from "../assets/images/history.svg";
 import sciIcon from "../assets/images/science.svg";

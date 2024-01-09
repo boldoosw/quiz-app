@@ -9,7 +9,7 @@ import useSWR from "swr";
 import { promises as fs } from "fs";
 import quiz from "../climov.json";
 import { getLocalData } from "@/lib/localdata";
-const TOTAL_QUESTIONS = 2;
+const TOTAL_QUESTIONS = 20;
 
 const getQuestions = async (
   amount: number,
@@ -29,8 +29,8 @@ const getQuestions = async (
   return ldata.results.map((question: Question) => ({
     ...question,
     answers: shuffleArray([
-      ...question.incorrect_answers,
-      question.correct_answer,
+      ...question.answers,
+      // question.correct_answer,
     ]),
   }));
 };

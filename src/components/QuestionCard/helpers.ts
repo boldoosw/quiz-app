@@ -1,5 +1,5 @@
-export const getBGColor = (userAnswer: string | undefined, correctAnswer: string, answer: string): string => {
-  const isAnswerCorrect = userAnswer ? userAnswer === correctAnswer : undefined;
+export const getBGColor = (userAnswer: string | undefined,  answer: string): string => {
+  // const isAnswerCorrect = userAnswer ? userAnswer === correctAnswer : undefined;
 
   // if ((isAnswerCorrect === true && answer === userAnswer) || (isAnswerCorrect === false && answer === correctAnswer))
     if (answer === userAnswer)
