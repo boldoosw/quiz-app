@@ -49,7 +49,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
   };
 
   return (
-    <div className="text-black text-center">
+    <div className="text-black text-center mt-8">
       {/* <p className="p-8 font-bold text-[20px]">Score: {score}</p> */}
       <p className="text-[#9F50AC] font-bold pb-2 text-[14px]">
         Question {currentQuestionIndex + 1} out of {totalQuestions}
