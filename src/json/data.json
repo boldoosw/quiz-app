@@ -1,0 +1,25 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+
+      "question": "Асуулт 1",
+      "correct_answer": "Хөдөө аж ахуйн фермер болох",
+      "incorrect_answers": [
+        
+        "Машин, тоног төхөөрөмж дээр ажиллах /угсрах, тохируулга хийх/"
+      
+      ]
+    },
+    {
+
+      "question": "Асуулт2",
+      "correct_answer": "Palace of the Dead",
+      "incorrect_answers": [
+        "Heaven on High",
+        "Aetherochemical Research Facility",
+        "Sunken Temple of Qarn"
+      ]
+    }
+  ]
+}

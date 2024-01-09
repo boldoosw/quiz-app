@@ -20,12 +20,12 @@ export default function QuizLayout({
   children: React.ReactNode;
 }) {
   return (
-    // <main
-    //   className={`${quicksand.variable}  font-quicksand max-w-[900px] w-full m-auto flex flex-col items-center`}
-    // >
     <main
-      className={`${quicksand.variable} bg-gray-200 rounded-xl mb-4 p-16 font-quicksand max-w-[900px] w-full m-auto flex flex-col items-center`}
+      className={`${quicksand.variable}  font-quicksand max-w-[900px] w-full m-auto flex flex-col items-center`}
     >
+      {/* <main
+      className={`${quicksand.variable} bg-gray-200 rounded-xl mb-4 p-16 font-quicksand max-w-[900px] w-full m-auto flex flex-col items-center`}
+    > */}
       <Image className="h-[80px] sm:h-full" src={Logo} alt="logo" />
       {children}
     </main>

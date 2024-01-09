@@ -29,13 +29,17 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     currentQuestionIndex: number
   ) => {
     // If user has already answered, do nothing
-    if (isQuestionAnswered) return;
+    // if (isQuestionAnswered) return;
     // Check answer against correct answer
-    const isCorrect = questions[currentQuestionIndex].correct_answer === answer;
+    // const isCorrect = questions[currentQuestionIndex].correct_answer === answer;
+
     // Add score if answer is correct
-    if (isCorrect) setScore((prev) => prev + 1);
+    // if (isCorrect) setScore((prev) => prev + 1);
     // Save the answer in the object for user answers
     setUserAnswers((prev) => ({ ...prev, [currentQuestionIndex]: answer }));
+    console.log(`hariult:${currentQuestionIndex}`, answer);
+    userAnswers[currentQuestionIndex] = answer;
+    console.log("userAnswer", userAnswers);
   };
 
   const handleChangeQuestion = (step: number) => {
@@ -46,7 +50,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
 
   return (
     <div className="text-black text-center">
-      <p className="p-8 font-bold text-[20px]">Score: {score}</p>
+      {/* <p className="p-8 font-bold text-[20px]">Score: {score}</p> */}
       <p className="text-[#9F50AC] font-bold pb-2 text-[14px]">
         Question {currentQuestionIndex + 1} out of {totalQuestions}
       </p>

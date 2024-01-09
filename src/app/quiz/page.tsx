@@ -5,7 +5,11 @@ import Quiz from "./Quiz";
 // Types
 import { Difficulty, QuestionsState, Question } from "@/types/quiz";
 
-const TOTAL_QUESTIONS = 10;
+import useSWR from "swr";
+import { promises as fs } from "fs";
+import quiz from "../climov.json";
+import { getLocalData } from "@/lib/localdata";
+const TOTAL_QUESTIONS = 2;
 
 const getQuestions = async (
   amount: number,
@@ -13,9 +17,16 @@ const getQuestions = async (
 ): Promise<QuestionsState> => {
   const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
   // console.log(endpoint);
-  const data = await (await fetch(endpoint, { cache: "no-store" })).json();
+  // const data = await (await fetch(endpoint, { cache: "no-store" })).json();
+  const ldata = await getLocalData();
 
-  return data.results.map((question: Question) => ({
+  // console.log("---------------------");
+  // console.log(ldata);
+  // console.log(quiz);
+  // const data =await quiz;
+
+  // return data.results.map((question: Question) => ({
+  return ldata.results.map((question: Question) => ({
     ...question,
     answers: shuffleArray([
       ...question.incorrect_answers,
@@ -26,6 +37,7 @@ const getQuestions = async (
 
 const Home = async () => {
   const questions = await getQuestions(TOTAL_QUESTIONS, Difficulty.EASY);
+  // const questions = quiz.results;
 
   return <Quiz questions={questions} totalQuestions={TOTAL_QUESTIONS} />;
 };
