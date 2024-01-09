@@ -8,7 +8,7 @@ type Props = {
   question: string;
   answers: string[];
   userAnswer: string | undefined;
-  correctAnswer: string;
+  // correctAnswer: string;
   onClick: (answer: string, currentQuestionIndex: number) => void;
 };
 
