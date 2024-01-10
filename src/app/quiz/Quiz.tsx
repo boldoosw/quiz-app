@@ -58,6 +58,8 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
         currentQuestionIndex={currentQuestionIndex}
         question={questions[currentQuestionIndex].question}
         answers={questions[currentQuestionIndex].answers}
+        answer_val={questions[currentQuestionIndex].answer_val}
+        answer_pic={questions[currentQuestionIndex].answer_pic}
         userAnswer={userAnswers[currentQuestionIndex]}
         // correctAnswer={questions[currentQuestionIndex].correct_answer}
         onClick={handleOnAnswerClick}

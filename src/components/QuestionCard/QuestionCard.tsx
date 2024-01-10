@@ -7,6 +7,8 @@ type Props = {
   currentQuestionIndex: number;
   question: string;
   answers: string[];
+  answer_val: string[];
+  answer_pic: string[];
   userAnswer: string | undefined;
   // correctAnswer: string;
   onClick: (answer: string, currentQuestionIndex: number) => void;
@@ -16,6 +18,8 @@ const QuestionCard: React.FC<Props> = ({
   currentQuestionIndex,
   question,
   answers,
+  answer_val,
+  answer_pic,
   userAnswer,
   onClick,
   // correctAnswer,
@@ -29,7 +33,7 @@ const QuestionCard: React.FC<Props> = ({
       {/* <div className="flex flex-col items-center pt-8"> */}
 
       <div className="grid w-full gap-6 md:grid-cols-2">
-        {answers.map((answer) => (
+        {answers.map((answer, i = 0) => (
           <div
             key={answer}
             onClick={() => onClick(answer, currentQuestionIndex)}
@@ -38,14 +42,16 @@ const QuestionCard: React.FC<Props> = ({
               answer
             )} p-1 cursor-pointer flex items-center justify-center select-none font-bold min-h-[45px] max-w-[400] w-full  rounded-[10px]`}
           >
-            {" "}
             {/* <a
               href="#"
               className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
             > */}
+
             <Image
               className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-              src={logonew}
+              src={`/images/climov_images/${answer_pic[i]}`}
+              width={200}
+              height={200}
               alt="Зураг"
             />
             <div className="flex flex-col justify-between p-4 leading-normal">

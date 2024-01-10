@@ -28,10 +28,11 @@ const getQuestions = async (
   // return data.results.map((question: Question) => ({
   return ldata.results.map((question: Question) => ({
     ...question,
-    answers: shuffleArray([
-      ...question.answers,
-      // question.correct_answer,
-    ]),
+    answers: [...question.answers],
+    // answers: shuffleArray([
+    //   ...question.answers,
+    //   // question.correct_answer,
+    // ]),
   }));
 };
 

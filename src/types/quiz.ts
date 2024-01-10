@@ -9,6 +9,8 @@ export type Question = {
   // correct_answer: string;
   difficulty: Difficulty;
   answers: Array<string>;
+  answer_val: Array<string>;
+  answer_pic: Array<string>;
   question: string;
   type: string;
 };
