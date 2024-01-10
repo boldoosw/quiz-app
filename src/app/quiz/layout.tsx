@@ -11,8 +11,8 @@ const quicksand = Quicksand({
 });
 
 export const metadata = {
-  title: "React Quiz 2023",
-  description: "Become the quiz master!",
+  title: "Мэргэжил сонголтын тест",
+  description: "Мэргэжил сонголтын тест!",
 };
 
 export default function QuizLayout({

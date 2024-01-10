@@ -15,7 +15,7 @@ const getQuestions = async (
   amount: number,
   difficulty: Difficulty
 ): Promise<QuestionsState> => {
-  const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
+  // const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
   // console.log(endpoint);
   // const data = await (await fetch(endpoint, { cache: "no-store" })).json();
   const ldata = await getLocalData();
