@@ -20,26 +20,32 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     {}
   );
 
-  const isQuestionAnswered = userAnswers[currentQuestionIndex] ? true : false;
+  const [selectedAnswer, setSelectedAnswer] = React.useState<
+    Record<number, string>
+  >({});
 
   const router = useRouter();
 
   const handleOnAnswerClick = (
     answer: string,
+    answer_val: string,
     currentQuestionIndex: number
   ) => {
     // If user has already answered, do nothing
     // if (isQuestionAnswered) return;
     // Check answer against correct answer
     // const isCorrect = questions[currentQuestionIndex].correct_answer === answer;
-
+    const answer_value = questions[currentQuestionIndex].answer_val;
     // Add score if answer is correct
     // if (isCorrect) setScore((prev) => prev + 1);
     // Save the answer in the object for user answers
     setUserAnswers((prev) => ({ ...prev, [currentQuestionIndex]: answer }));
-    console.log(`hariult:${currentQuestionIndex}`, answer);
+
     userAnswers[currentQuestionIndex] = answer;
+    selectedAnswer[currentQuestionIndex] = answer_val;
+
     console.log("userAnswer", userAnswers);
+    console.log("selectedAnswer", selectedAnswer);
   };
 
   const handleChangeQuestion = (step: number) => {

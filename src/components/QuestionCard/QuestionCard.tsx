@@ -11,7 +11,11 @@ type Props = {
   answer_pic: string[];
   userAnswer: string | undefined;
   // correctAnswer: string;
-  onClick: (answer: string, currentQuestionIndex: number) => void;
+  onClick: (
+    answer: string,
+    answer_val: string,
+    currentQuestionIndex: number
+  ) => void;
 };
 
 const QuestionCard: React.FC<Props> = ({
@@ -30,7 +34,7 @@ const QuestionCard: React.FC<Props> = ({
         {answers.map((answer, i = 0) => (
           <div
             key={answer}
-            onClick={() => onClick(answer, currentQuestionIndex)}
+            onClick={() => onClick(answer, answer_val[i], currentQuestionIndex)}
             className={`${getBGColor(userAnswer, answer)}  p-2 cursor-pointer 
             select-none font-bold min-h-[45px] max-w-[400] w-full  rounded-[10px]
               border border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  `}
