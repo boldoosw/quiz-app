@@ -64,7 +64,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
         // correctAnswer={questions[currentQuestionIndex].correct_answer}
         onClick={handleOnAnswerClick}
       />
-      <div className="flex justify-between mt-16">
+      <div className="flex justify-between mt-16 ">
         <Button text="Өмнөх" onClick={() => handleChangeQuestion(-1)} />
         <Button
           text={
