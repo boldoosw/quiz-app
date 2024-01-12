@@ -19,7 +19,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
   const [userAnswers, setUserAnswers] = React.useState<Record<number, string>>(
     {}
   );
-
+  const [isQuestionAnswered, setIsQuestionAnswered] = React.useState(false);
   const [selectedAnswer, setSelectedAnswer] = React.useState<
     Record<number, string>
   >({});
@@ -40,6 +40,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     // if (isCorrect) setScore((prev) => prev + 1);
     // Save the answer in the object for user answers
     setUserAnswers((prev) => ({ ...prev, [currentQuestionIndex]: answer }));
+    setIsQuestionAnswered(true);
 
     userAnswers[currentQuestionIndex] = answer;
     selectedAnswer[currentQuestionIndex] = answer_val;
@@ -51,6 +52,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
   const handleChangeQuestion = (step: number) => {
     const newQuestionIndex = currentQuestionIndex + step;
     if (newQuestionIndex < 0 || newQuestionIndex >= totalQuestions) return;
+    setIsQuestionAnswered(false);
     setCurrentQuestionIndex(newQuestionIndex);
   };
 
@@ -72,9 +74,16 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
       />
       <div className="flex justify-between mt-16 ">
         <Button text="Өмнөх" onClick={() => handleChangeQuestion(-1)} />
+
         <Button
           text={
             currentQuestionIndex === totalQuestions - 1 ? "Дуусгах" : "Дараах"
+          }
+          btn_next={
+            selectedAnswer[currentQuestionIndex] === undefined ||
+            selectedAnswer[currentQuestionIndex] === null
+              ? true
+              : false
           }
           onClick={
             currentQuestionIndex === totalQuestions - 1
