@@ -75,7 +75,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
       <div className="flex justify-between mt-16 ">
         <Button
           text="Өмнөх"
-          btn_next={true}
+          btn_next={false}
           onClick={() => handleChangeQuestion(-1)}
         />
 
