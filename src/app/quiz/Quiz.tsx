@@ -73,7 +73,11 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
         onClick={handleOnAnswerClick}
       />
       <div className="flex justify-between mt-16 ">
-        <Button text="Өмнөх" onClick={() => handleChangeQuestion(-1)} />
+        <Button
+          text="Өмнөх"
+          btn_next={true}
+          onClick={() => handleChangeQuestion(-1)}
+        />
 
         <Button
           text={
