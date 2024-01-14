@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "Климовын тест",
-        link: "quiz",
+        link: "climov_test",
         iconImage: todoImage,
       },
       {

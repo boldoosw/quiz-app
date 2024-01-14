@@ -3,7 +3,7 @@ import { Quicksand } from "next/font/google";
 // Logo
 import Logo from "@/assets/images/klimov.png";
 // import Logo from "@/assets/react-quiz-logo.svg";
-import "../globals.css";
+import "@/app/globals.css";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
