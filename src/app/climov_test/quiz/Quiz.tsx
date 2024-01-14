@@ -81,7 +81,17 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     console.log(chartData);
   };
 
-  return currentQuestionIndex !== totalQuestions - 1 ? (
+  return currentQuestionIndex === totalQuestions - 1 ? (
+    <div className="text-black text-center mt-8">
+      {" "}
+      {chartData}
+      {/* <p className="p-8 font-bold text-[20px]">Score: {score}</p> */}
+      <VulnChart
+        labels={["Хүн", "Урлаг", "Техник", "Байгаль", "Тэмдэгт"]}
+        data={chartData}
+      />
+    </div>
+  ) : (
     <div className="text-black text-center mt-8">
       {/* <p className="p-8 font-bold text-[20px]">Score: {score}</p> */}
       <p className="text-[#9F50AC] font-bold pb-2 text-[14px]">
@@ -121,16 +131,6 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
           }
         />
       </div>
-    </div>
-  ) : (
-    <div className="text-black text-center mt-8">
-      {" "}
-      {chartData}
-      {/* <p className="p-8 font-bold text-[20px]">Score: {score}</p> */}
-      <VulnChart
-        labels={["Хүн", "Урлаг", "Техник", "Байгаль", "Тэмдэгт"]}
-        data={chartData}
-      />
     </div>
   );
 };
