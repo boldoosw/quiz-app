@@ -5,6 +5,9 @@ import spaceIcon from "../assets/images/space.svg";
 import Image from "next/image";
 import climov from "@/assets/images/klimov.png";
 import Link from "next/link";
+import MyLineChart from "@/components/MyLineChart";
+import VulnChart from "@/components/VulnChart/VulnChart";
+import BarChart from "@/components/BarChart/BarChart";
 
 export default function Page() {
   return (
@@ -24,8 +27,7 @@ export default function Page() {
 
       <div className="md:w-[50%] flex flex-col gap-5">
         <h1 className="text-2xl font-semibold">
-          Мэргэжлийн төрлийг тодорхойлох: Климовын ажил мэргэжлийн чиг баримжаа
-          олгох тест
+          Климовын ажил мэргэжлийн чиг баримжаа олгох тест
         </h1>
         <p className="text-sm leading-6 text-gray-300">
           Энэхүү ажил мэргэжлийн чиг баримжаа олгох тест нь танд тохирох
@@ -40,6 +42,8 @@ export default function Page() {
           {/* <TbArrowBigRightFilled className="text-lg" /> */}
           Климовын тест өгөх
         </Link>
+        <MyLineChart />
+        {/* <VulnChart /> */}
       </div>
     </div>
   );
