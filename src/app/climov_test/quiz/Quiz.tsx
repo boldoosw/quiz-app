@@ -81,7 +81,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     console.log(chartData);
   };
 
-  return currentQuestionIndex === totalQuestions - 1 ? (
+  return currentQuestionIndex === totalQuestions - 2 ? (
     <div className="text-black text-center mt-8">
       {" "}
       {chartData}
