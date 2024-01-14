@@ -125,9 +125,10 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
               : false
           }
           onClick={
-            currentQuestionIndex === totalQuestions - 1
-              ? () => router.push("/")
-              : () => handleChangeQuestion(1)
+            // currentQuestionIndex === totalQuestions - 1
+            //   ? () => router.push("/")
+            //   :
+            () => handleChangeQuestion(1)
           }
         />
       </div>
