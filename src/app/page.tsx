@@ -42,8 +42,12 @@ export default function Page() {
           {/* <TbArrowBigRightFilled className="text-lg" /> */}
           Климовын тест өгөх
         </Link>
-        <MyLineChart />
-        {/* <VulnChart /> */}
+        {/* <MyLineChart />
+        <VulnChart
+          labels={["Хүн", "Урлаг", "Техник", "Байгаль", "Тэмдэгт"]}
+          data={[5, 3, 5, 4, 3]}
+          // data={chartData}
+        /> */}
       </div>
     </div>
   );
