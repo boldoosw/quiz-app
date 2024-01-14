@@ -46,6 +46,9 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
 
     userAnswers[currentQuestionIndex] = answer;
     selectedAnswer[currentQuestionIndex] = answer_val;
+
+    // console.log(selectedAnswer);
+    // console.log(chartData);
   };
 
   const handleChangeQuestion = (step: number) => {
@@ -54,7 +57,7 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     setIsQuestionAnswered(false);
     setCurrentQuestionIndex(newQuestionIndex);
 
-    if (newQuestionIndex === totalQuestions - 1) {
+    if (currentQuestionIndex === totalQuestions - 1) {
       let people_count: number = 0;
       let technical_count: number = 0;
       let culture_count: number = 0;
@@ -76,19 +79,19 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
         ecology_count,
         character_count,
       ];
+      console.log(chartData);
     }
-    console.log(selectedAnswer);
-    console.log(chartData);
   };
 
-  return currentQuestionIndex === totalQuestions - 2 ? (
+  return currentQuestionIndex === totalQuestions - 1 ? (
     <div className="text-black text-center mt-8">
       {" "}
       {chartData}
       {/* <p className="p-8 font-bold text-[20px]">Score: {score}</p> */}
       <VulnChart
         labels={["Хүн", "Урлаг", "Техник", "Байгаль", "Тэмдэгт"]}
-        data={chartData}
+        data={[5, 3, 5, 4, 3]}
+        // data={chartData}
       />
     </div>
   ) : (
