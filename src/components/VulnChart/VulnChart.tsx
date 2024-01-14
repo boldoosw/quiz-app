@@ -21,7 +21,7 @@ ChartJS.register(
 
 type Props = {
   labels: string[];
-  data: [];
+  data: number[];
 };
 
 const VulnChart: React.FC<Props> = ({ labels, data }) => {
