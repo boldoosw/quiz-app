@@ -32,12 +32,12 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "Климовын тест",
-        link: "climov_test",
+        link: "/climov_test",
         iconImage: todoImage,
       },
       {
         label: "Холландын тест",
-        link: "#",
+        link: "/holland_test",
         iconImage: calendarImage,
       },
       {

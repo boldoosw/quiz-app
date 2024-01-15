@@ -7,7 +7,7 @@ import { Difficulty, QuestionsState, Question } from "@/types/quiz";
 
 import useSWR from "swr";
 import { promises as fs } from "fs";
-import { getLocalData } from "@/lib/localdata";
+import { getLocalData } from "@/lib/climov_data";
 const TOTAL_QUESTIONS = 20;
 
 const getQuestions = async (

@@ -3,11 +3,11 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 // Components
-import QuestionCard from "@/components/QuestionCard/QuestionCard";
 import Button from "@/components/Button/Button";
 // Types
 import { QuestionsState } from "@/types/quiz";
-import VulnChart from "@/components/VulnChart/VulnChart";
+import VulnChart from "@/components/VulnChart/HollandVulnChart";
+import HollandQuestionCard from "@/components/QuestionCard/HollandQuestionCard";
 
 type Props = {
   questions: QuestionsState;
@@ -17,6 +17,7 @@ let chartData: number[] = [];
 const Quiz = ({ questions, totalQuestions }: Props) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
   const [score, setScore] = React.useState(0);
+  const [showResult, setShowResult] = React.useState(false);
 
   const [userAnswers, setUserAnswers] = React.useState<Record<number, string>>(
     {}
@@ -33,14 +34,8 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
     answer_val: string,
     currentQuestionIndex: number
   ) => {
-    // If user has already answered, do nothing
-    // if (isQuestionAnswered) return;
-    // Check answer against correct answer
-    // const isCorrect = questions[currentQuestionIndex].correct_answer === answer;
     const answer_value = questions[currentQuestionIndex].answer_val;
-    // Add score if answer is correct
-    // if (isCorrect) setScore((prev) => prev + 1);
-    // Save the answer in the object for user answers
+
     setUserAnswers((prev) => ({ ...prev, [currentQuestionIndex]: answer }));
     setIsQuestionAnswered(true);
 
@@ -56,40 +51,51 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
   };
   const getChartData = () => {
     if (currentQuestionIndex === totalQuestions - 1) {
-      let people_count: number = 0;
-      let technical_count: number = 0;
-      let culture_count: number = 0;
-      let character_count: number = 0;
-      let ecology_count: number = 0;
+      let bodit_ua_count: number = 0;
+      let shinjeech_count: number = 0;
+      let urlag_count: number = 0;
+      let niigem_count: number = 0;
+      let udirdah_count: number = 0;
+      let standart_count: number = 0;
 
       const answerValues = Object.values(selectedAnswer);
       answerValues.map((x: any): void => {
-        if (x === "Хүн") people_count++;
-        if (x === "Байгаль") ecology_count++;
-        if (x === "Тэмдэгт") character_count++;
-        if (x === "Техник") technical_count++;
-        if (x === "Урлаг") culture_count++;
+        if (x === "1") bodit_ua_count++;
+        if (x === "2") shinjeech_count++;
+        if (x === "3") urlag_count++;
+        if (x === "4") niigem_count++;
+        if (x === "5") udirdah_count++;
+        if (x === "6") standart_count++;
       });
-      chartData.push(people_count);
-      chartData.push(culture_count);
-      chartData.push(technical_count);
-      chartData.push(ecology_count);
-      chartData.push(character_count);
+      chartData.push(bodit_ua_count);
+      chartData.push(shinjeech_count);
+      chartData.push(urlag_count);
+      chartData.push(niigem_count);
+      chartData.push(udirdah_count);
+      chartData.push(standart_count);
+
+      setShowResult(true);
       console.log(chartData);
     }
   };
-  return (
+  return !showResult ? (
     <div className="text-black text-center mt-8">
-      <p className="p-8 font-bold text-[20px]"> {chartData}</p>
+      <div className="bg-[#7030a0] text-white text-center  p-4 text-[14px] mt-8 w-full">
+        Хамгийн их сонирхдог мэргэжлээ сонго. Таны сонгосон мэргэжил өөрийн тань
+        мэргэжлийн хэв шинжид нийцэж байгаа эсэхээс тухайн мэргэжилдээ гаргах
+        амжилт ихээхэн шалтгаална. Энэхүү тест нь таны мэргэжлийн тэр төрлийг
+        тодорхойлоход тусална. 42 хос мэргэжлээс өөрт тань таалагдах нэгийг
+        сонгоно уу.
+      </div>
       <p className="text-[#9F50AC] font-bold pb-2 text-[14px]">
-        Question {currentQuestionIndex + 1} out of {totalQuestions}
+        Асуулт {currentQuestionIndex + 1} / {totalQuestions}
       </p>
-      <QuestionCard
+      <HollandQuestionCard
         currentQuestionIndex={currentQuestionIndex}
         question={questions[currentQuestionIndex].question}
         answers={questions[currentQuestionIndex].answers}
         answer_val={questions[currentQuestionIndex].answer_val}
-        answer_pic={questions[currentQuestionIndex].answer_pic}
+        // answer_pic={questions[currentQuestionIndex].answer_pic}
         userAnswer={userAnswers[currentQuestionIndex]}
         // correctAnswer={questions[currentQuestionIndex].correct_answer}
         onClick={handleOnAnswerClick}
@@ -114,35 +120,27 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
           onClick={
             currentQuestionIndex === totalQuestions - 1
               ? () => getChartData()
-              : // ? () => router.push("/")
+              : // () => router.push("/")
                 () => handleChangeQuestion(1)
           }
         />
       </div>
-      {chartData.length !== 0 ? (
-        <div className="text-black text-center mt-8">
-          <VulnChart
-            labels={["Хүн", "Урлаг", "Техник", "Байгаль", "Тэмдэгт"]}
-            // data={[5, 3, 5, 4, 3]}
-            data={chartData}
-          />
-        </div>
-      ) : (
-        ""
-      )}
+    </div>
+  ) : (
+    <div className="text-black text-center mt-8">
+      <VulnChart
+        labels={[
+          "Бодит үйл ажиллагааг дэмжигч",
+          "Шинжээч судлаач",
+          "Урлагын",
+          "Нийгмийн",
+          "Удирдан зохион байгуулах",
+          "Стандартыг баримтлагч",
+        ]}
+        data={chartData}
+      />
     </div>
   );
 };
 
 export default Quiz;
-
-// <div className="text-black text-center mt-8">
-//   {" "}
-//   {chartData}
-//   {/* <p className="p-8 font-bold text-[20px]">Score: {score}</p> */}
-//   <VulnChart
-//     labels={["Хүн", "Урлаг", "Техник", "Байгаль", "Тэмдэгт"]}
-//     data={[5, 3, 5, 4, 3]}
-//     // data={chartData}
-//   />
-// </div>;

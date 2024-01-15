@@ -30,11 +30,11 @@ export default function Page() {
           бөглөхөд 4-5 минутаас ихгүй хугацаа шаардагдана.
         </p>
         <Link
-          href={`/climov_test/quiz/`}
+          href={`/holland_test/quiz/`}
           className="flex items-center justify-center gap-1 px-5 py-4 font-semibold text-blue-500 transition-colors rounded-md outline duration-600 hover:bg-blue-600 hover:text-white"
         >
           {/* <TbArrowBigRightFilled className="text-lg" /> */}
-          Климовын тест өгөх
+          Холландын тест өгөх
         </Link>
       </div>
     </div>
