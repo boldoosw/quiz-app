@@ -33,13 +33,13 @@ const VulnChart: React.FC<Props> = ({ labels, data }) => {
           //   labels: ["Хүн", "Байгаль", "Амьтан", "Техник", "Тэмдэгт"],
           datasets: [
             {
-              label: "# of vulnerabilities",
+              label: "# Хариулт",
               data: data,
               //   data: [15, 12, 6, 7, 40],
-              //   backgroundColor: ["red", "yellow", "blue", "black", "green"],
-              //   borderColor: "orange",
-              borderColor: "rgb(53,162,235)",
-              backgroundColor: "rgb(53,162,235,0.4)",
+              backgroundColor: ["red", "yellow", "blue", "black", "green"],
+              borderColor: "orange",
+              // borderColor: "rgb(53,162,235)",
+              // backgroundColor: "rgb(53,162,235,0.4)",
               borderWidth: 1,
             },
           ],
