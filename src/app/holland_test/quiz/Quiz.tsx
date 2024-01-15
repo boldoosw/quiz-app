@@ -17,7 +17,7 @@ let chartData: number[] = [];
 const Quiz = ({ questions, totalQuestions }: Props) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
   const [score, setScore] = React.useState(0);
-  const [showResult, setShowResult] = React.useState(false);
+
   const [userAnswers, setUserAnswers] = React.useState<Record<number, string>>(
     {}
   );
@@ -50,7 +50,6 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
 
   const handleChangeQuestion = (step: number) => {
     const newQuestionIndex = currentQuestionIndex + step;
-
     if (newQuestionIndex < 0 || newQuestionIndex >= totalQuestions) return;
     setIsQuestionAnswered(false);
     setCurrentQuestionIndex(newQuestionIndex);
@@ -76,13 +75,10 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
       chartData.push(technical_count);
       chartData.push(ecology_count);
       chartData.push(character_count);
-
-      setShowResult(true);
       console.log(chartData);
     }
   };
-
-  return !showResult ? (
+  return (
     <div className="text-black text-center mt-8">
       <p className="p-8 font-bold text-[20px]"> {chartData}</p>
       <p className="text-[#9F50AC] font-bold pb-2 text-[14px]">
@@ -118,19 +114,22 @@ const Quiz = ({ questions, totalQuestions }: Props) => {
           onClick={
             currentQuestionIndex === totalQuestions - 1
               ? () => getChartData()
-              : // () => router.push("/")
+              : // ? () => router.push("/")
                 () => handleChangeQuestion(1)
           }
         />
       </div>
-    </div>
-  ) : (
-    <div className="text-black text-center mt-8">
-      <VulnChart
-        labels={["Хүн", "Урлаг", "Техник", "Байгаль", "Тэмдэгт"]}
-        // data={[5, 3, 5, 4, 3]}
-        data={chartData}
-      />
+      {chartData.length !== 0 ? (
+        <div className="text-black text-center mt-8">
+          <VulnChart
+            labels={["Хүн", "Урлаг", "Техник", "Байгаль", "Тэмдэгт"]}
+            // data={[5, 3, 5, 4, 3]}
+            data={chartData}
+          />
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
