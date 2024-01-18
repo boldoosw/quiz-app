@@ -6,24 +6,19 @@ import Quiz from "./Quiz";
 import { Difficulty, QuestionsState, Question } from "@/types/quiz";
 
 import { getLocalData } from "@/lib/custom_data";
-const TOTAL_QUESTIONS = 42;
 
-const getQuestions = async (
-  amount: number,
-  difficulty: Difficulty
-): Promise<QuestionsState> => {
+const getQuestions = async (): Promise<QuestionsState> => {
   const ldata = await getLocalData();
 
   return ldata.results.map((question: Question) => ({
     ...question,
-    answers: [...question.answers],
   }));
 };
 
 const Home = async () => {
-  const questions = await getQuestions(TOTAL_QUESTIONS, Difficulty.EASY);
+  const questions = await getQuestions();
 
-  return <Quiz questions={questions} totalQuestions={TOTAL_QUESTIONS} />;
+  return <Quiz questions={questions} />;
 };
 
 export default Home;
