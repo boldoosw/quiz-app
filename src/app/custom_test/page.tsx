@@ -30,7 +30,7 @@ export default function Page() {
           хэв шинжийг тодорхойлж, түүнд тохирхомжтой мэргэжлийг сонгоно уу.
         </p>
         <Link
-          href={`/holland_test/quiz/`}
+          href={`/custom_test/quiz/`}
           className="flex items-center justify-center gap-1 px-5 py-4 font-semibold text-blue-500 transition-colors rounded-md outline duration-600 hover:bg-blue-600 hover:text-white"
         >
           {/* <TbArrowBigRightFilled className="text-lg" /> */}
