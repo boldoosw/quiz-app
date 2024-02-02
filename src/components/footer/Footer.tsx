@@ -16,14 +16,16 @@ const Footer = () => {
           </a>
         </small>
         <small className="text-[0.7rem] xs:text-sm flex">
-          Made with <HeartIcon className="w-4 mx-1 text-cancel h4" /> by{" "}
+          {/* Made with <HeartIcon className="w-4 mx-1 text-cancel h4" /> by{" "}
           <a
             href="https://dev-folio-793.vercel.app"
             target="_blank"
             className="ml-1 text-accent"
           >
             Ganbold Khaltar
-          </a>
+          </a> */}
+          Мэргэжил сонголтын Холланд ба Климовын сонгодог тест дээр суурилсан
+          Резапкины аргачлалыг ОНЛАЙН хувилараар боловсруулав. “Цахим тест” төв.
         </small>
       </div>
     </footer>

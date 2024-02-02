@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Question } from "@/types/quiz";
-
+const { useEffect, useState } = React;
 type Props = {
   question: Question;
 
@@ -9,9 +9,23 @@ type Props = {
 };
 
 const CustomCard: React.FC<Props> = ({ question, radioHandler }) => {
+  const [selected, setSelected] = useState("");
+
+  // Destructure the id from the clicked element
+  // and set the state with it
+  function handleChange(e: { target: { id: any } }) {
+    const { id } = e.target;
+    setSelected(id);
+    console.log(id);
+  }
+  // Log the state after its been updated
+  useEffect(() => {
+    if (selected) console.log(selected);
+  }, [selected]);
   return (
     <div className="md:w-full gap-6 md:grid-cols-2 m-2">
       <div
+        id=""
         className="bg-sky-100 flex
         flex-row justify-between items-center cursor-pointer 
             select-none  max-w-[400] w-full  rounded-[10px]
@@ -27,7 +41,6 @@ const CustomCard: React.FC<Props> = ({ question, radioHandler }) => {
                 value="yes"
                 name={question.question}
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                onChange={radioHandler}
               />
               <label
                 htmlFor="list-radio-military"
@@ -45,7 +58,6 @@ const CustomCard: React.FC<Props> = ({ question, radioHandler }) => {
                 value="no"
                 name={question.question}
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                onChange={radioHandler}
               />
               <label
                 htmlFor="list-radio-passport1"
