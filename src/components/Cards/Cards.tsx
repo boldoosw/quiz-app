@@ -9,6 +9,16 @@ function AboutCards() {
   // Card data
   const cardList = [
     {
+      img: card1,
+      title: "Түргэн тусламж",
+      description: "1. Өөрийг тодорхойлох Түргэн тусламж",
+    },
+    {
+      img: card2,
+      title: "Хүсэл сонирхол",
+      description: "2.Өөрийн “Хүсэл сонирхол”-д тохирох мэргэжил ",
+    },
+    {
       img: card4,
       title: "Тайлан дүгнэлт",
       description: "4.Тайлан дүгнэлт/Загвар тайлан/",
@@ -18,19 +28,10 @@ function AboutCards() {
       title: "Анализ шинжилгээ",
       description: "3.Мэргэжлийн нөлөөллийн анализ шинжилгээ  ",
     },
-    {
-      img: card2,
-      title: "Хүсэл сонирхол",
-      description: "2.Өөрийн “Хүсэл сонирхол”-д тохирох мэргэжил ",
-    },
-    {
-      img: card1,
-      title: "Түргэн тусламж",
-      description: "1. Өөрийг тодорхойлох Түргэн тусламж",
-    },
   ];
   return (
     <>
+      {" "}
       {cardList.map((card, id) => (
         <div
           key={id}
