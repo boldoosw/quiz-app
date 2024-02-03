@@ -24,7 +24,6 @@ export default function RootLayout({
         <div className="container px-5 py-5 mx-auto flex justify-center flex-wrap bg-gray-100">
           {children}
         </div>
-
         <Footer />
       </body>
     </html>
