@@ -1,5 +1,5 @@
 import Home from "@/app/home/page";
-import AboutCards from "@/components/Cards/Cards";
+// import AboutCards from "@/components/Cards/Cards";
 
 export default function Page() {
   return (
